@@ -13,7 +13,7 @@ public class Main {
     static int splitSize;
     static int maxBuffSize;
     static int maxProducerSleepTime;
-    static int maxConsuerSleepTime;
+    static int maxConsumerSleepTime;
     static int numConsumer;
 
     static int numProducer = 1;
@@ -54,7 +54,7 @@ public class Main {
         Consumer[] consumers = new Consumer[numConsumer];
         // 
         for (int i = 0; i < numConsumer; i++) {
-            consumers[i] = new Consumer(buffer, maxConsuerSleepTime);
+            consumers[i] = new Consumer(buffer, maxConsumerSleepTime);
             executor.execute(consumers[i]);
         }
         /*
@@ -189,7 +189,7 @@ public class Main {
             numConsumer = Integer.parseInt(property.getProperty("NumConsumer"));
 
             maxProducerSleepTime = Integer.parseInt(property.getProperty("MaxProducerSleepTime"));
-            maxConsuerSleepTime = Integer.parseInt(property.getProperty("MaxConsumerSleepTime"));
+            maxConsumerSleepTime = Integer.parseInt(property.getProperty("MaxConsumerSleepTime"));
 
         } catch (Exception e) {
             e.printStackTrace();

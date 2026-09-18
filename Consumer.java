@@ -7,7 +7,7 @@ public class Consumer implements Runnable {
     private SharedBuffer buffer;
     private boolean stop = false;
 
-    private int consuerCount = 0; // count the number of consumed work item
+    private int consumerCount = 0; // count the number of consumed work item
 
     private int MaxConsumerSleepTime; // sleep time of the consumer thread between the two sub-matrices multiplication
     private int totalConsumerSleepTime = 0; // will be used to calculate the average sleep time of consumer thread
@@ -29,7 +29,7 @@ public class Consumer implements Runnable {
   
                 calculate(item); // call method to calculate the submatrix multiplication
 
-                consuerCount++; // count number of consumed work item
+                consumerCount++; // count number of consumed work item
 
                 item.setDone(true);
 
@@ -96,11 +96,11 @@ public class Consumer implements Runnable {
     }
 
     public int getConsumedCount() {
-        return consuerCount;
+        return consumerCount;
     }
 
     public double avgConsumerSleepTime() {
-        return totalConsumerSleepTime / consuerCount;
+        return totalConsumerSleepTime / consumerCount;
     }
 
 }
